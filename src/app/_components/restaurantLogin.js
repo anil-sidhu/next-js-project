@@ -18,6 +18,7 @@ const RestaurantLogin = () => {
             method:'POST',
             body:JSON.stringify({email,password,login:true})
         });
+        
         response = await response.json();
         if(response.success){
             const {result}=response;
