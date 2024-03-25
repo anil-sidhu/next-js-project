@@ -33,3 +33,6 @@ table, th, td{
 table td button{
   margin: 5px;
 }
+table img {
+  width: 80px;
+}
