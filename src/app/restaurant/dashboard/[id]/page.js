@@ -25,8 +25,6 @@ const EditFoodItems = (props) => {
             setPrice(response.result.price)
             setPath(response.result.img_path)
             setDescription(response.result.description)
-
-
         }
     }
 
@@ -37,6 +35,17 @@ const EditFoodItems = (props) => {
             return false
         } else {
             setError(false)
+        }
+
+        let response = await fetch("http://localhost:3000/api/restaurant/foods/edit/" + props.params.id,{
+            method:'PUT',
+            body:JSON.stringify({name,price,img_path:path,description})
+        });
+        response = await response.json();
+        if(response.success){
+            router.push('../dashboard')
+        }else{
+            alert("data is not updated please try again")
         }
 
 
