@@ -1,3 +1,45 @@
+body{
+  padding: 0;
+  margin: 0;
+}
+*:focus{
+  outline: none;
+}
+.header-wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.header-wrapper ul {
+display: flex;
+}
+
+.header-wrapper ul li {
+  list-style-type: none;
+  padding: 5px;
+
+}
+.header-wrapper ul li a{
+  text-decoration: none;
+}
+
+.header-wrapper ul li button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: blueviolet;
+  font-size: 16px;
+}
+
+.footer-wrapper{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  background-color: #fff;
+}
+
+
 .input-wrapper{
 margin: 10px;
 }
@@ -35,4 +77,37 @@ table td button{
 }
 table img {
   width: 80px;
+}
+
+.main-page-banner{
+  background-image: url('https://a.storyblok.com/f/88809/1150x450/30a9c4f9a6/igevia_header_fastfood01_450.jpg');
+height: 230px;
+text-align: center;
+padding: 30px;
+background-color: rgba(0, 0, 0, 0.7);
+background-blend-mode: multiply;
+color: #fff;
+}
+
+.main-page-banner .input-wrapper{
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 70%;
+  margin: auto;
+}
+
+.main-page-banner .select-input{
+  height: 40px;
+  border: none;
+  padding-left: 15px;
+width: 30%;
+  }
+.main-page-banner .search-input{
+height: 40px;
+border: none;
+padding-left: 15px;
+border-left: 1px solid #ccc;
+width: 65%;
 }
