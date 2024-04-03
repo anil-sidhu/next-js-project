@@ -94,7 +94,7 @@ color: #fff;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 70%;
+  width: 60%;
   margin: auto;
 }
 
@@ -102,12 +102,30 @@ color: #fff;
   height: 40px;
   border: none;
   padding-left: 15px;
-width: 30%;
+width: 25%;
   }
 .main-page-banner .search-input{
 height: 40px;
 border: none;
 padding-left: 15px;
 border-left: 1px solid #ccc;
-width: 65%;
+width: 45%;
+}
+
+.location-list {
+  color: #000;
+  list-style-type: none;
+  text-align: left;
+  position: absolute;
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  margin-left: -5px;
+  border: 1px solid #ccc;
+}
+.location-list li {
+  width: 180px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
 }
