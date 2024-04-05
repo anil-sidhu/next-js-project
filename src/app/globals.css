@@ -79,7 +79,7 @@ table img {
   width: 80px;
 }
 
-.main-page-banner{
+.main-page-banner,.restaurant-page-banner{
   background-image: url('https://a.storyblok.com/f/88809/1150x450/30a9c4f9a6/igevia_header_fastfood01_450.jpg');
 height: 230px;
 text-align: center;
@@ -155,4 +155,7 @@ width: 45%;
 }
 .restaurant-wrapper .address{
   margin-left: 5px;
+}
+.restaurant-page-banner h1{
+  font-size: 65px;
 }
