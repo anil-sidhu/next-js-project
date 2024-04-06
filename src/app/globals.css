@@ -159,3 +159,40 @@ width: 45%;
 .restaurant-page-banner h1{
   font-size: 65px;
 }
+.details-wrapper {
+  display: flex;
+  background-color: orange;
+}
+.details-wrapper h4{
+width: 50%;
+}
+
+.food-list-wrapper{
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.food-list-wrapper .list-item {
+  color: orange;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  padding: 20px;
+  display: flex;
+  text-transform: capitalize;
+}
+.food-list-wrapper .list-item .description{
+  font-weight: lighter;
+}
+.food-list-wrapper .list-item button {
+  color: #fff;
+  background-color: orange;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.food-list-wrapper .list-item img{
+  width: 100px;
+  padding-right: 20px;
+}
