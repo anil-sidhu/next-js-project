@@ -6,6 +6,7 @@ const Page = (props) => {
     const name = props.params.name;
     const [restaurantDetails, setRestaurantDetails] = useState();
     const [foodItems, setFoodItems] = useState([])
+    const [cartData, setCartData] = useState();
 
     useEffect(() => {
         loadRestaurantDetails()
@@ -21,9 +22,12 @@ const Page = (props) => {
         }
 
     }
+    const addToCart = (item) => {
+        setCartData(item)
+    }
     return (
         <div>
-            <CustomerHeader />
+            <CustomerHeader cartData={cartData} />
             <div className="restaurant-page-banner">
                 <h1>{decodeURI(name)}</h1>
             </div>
@@ -35,7 +39,7 @@ const Page = (props) => {
             </div>
             <div className="food-list-wrapper">
                 {
-                    foodItems.length>0? foodItems.map((item) => (
+                    foodItems.length > 0 ? foodItems.map((item) => (
                         <div className="list-item">
                             <div><img style={{ width: 100 }} src={item.img_path} /></div>
 
@@ -43,12 +47,12 @@ const Page = (props) => {
                                 <div>{item.name}</div>
                                 <div>{item.price}</div>
                                 <div className="description">{item.description}</div>
-                                <button>Add to Cart</button>
+                                <button onClick={() => addToCart(item)}>Add to Cart</button>
                             </div>
 
                         </div>
                     ))
-                    :<h1>No Food Items for this Restaurant</h1>
+                        : <h1>No Food Items for this Restaurant</h1>
                 }
             </div>
         </div>
