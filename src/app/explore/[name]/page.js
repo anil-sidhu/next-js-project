@@ -11,6 +11,7 @@ const Page = (props) => {
     const [cartIds, setCartIds] = useState(cartStorage?() => cartStorage.map((cartItem) => {
         return cartItem._id
     }):[])
+    const [removeCartData,setRemoveCartData]=useState()
 
     console.log(cartIds);
 
@@ -33,11 +34,19 @@ const Page = (props) => {
         localCartIds.push(item._id);
         setCartIds(localCartIds)
         setCartData(item)
+        setRemoveCartData();
 
+    }
+
+    const removeFromCart=(id)=>{
+        setRemoveCartData(id);
+        var localIds=cartIds.filter(item=>item!=id);
+        setCartData()
+        setCartIds(localIds)
     }
     return (
         <div>
-            <CustomerHeader cartData={cartData} />
+            <CustomerHeader cartData={cartData}  removeCartData={removeCartData}/>
             <div className="restaurant-page-banner">
                 <h1>{decodeURI(name)}</h1>
             </div>
@@ -59,7 +68,7 @@ const Page = (props) => {
                                 <div className="description">{item.description}</div>
                                 {
                                     cartIds.includes(item._id) ?
-                                        <button >Remove From Cart</button>
+                                        <button  onClick={()=>removeFromCart(item._id)} >Remove From Cart</button>
                                         : <button onClick={() => addToCart(item)}>Add to Cart</button>
 
                                 }
