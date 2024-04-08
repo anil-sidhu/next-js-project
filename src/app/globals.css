@@ -196,3 +196,13 @@ width: 50%;
   width: 100px;
   padding-right: 20px;
 }
+
+.list-item-block-1{
+  width: 20%;
+}
+.list-item-block-2{
+  width: 60%;
+}
+.list-item-block-3{
+  width: 20%;
+}
