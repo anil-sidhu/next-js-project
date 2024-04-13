@@ -1,11 +1,26 @@
+import { useRouter } from "next/navigation";
 import { useState } from "react"
 
 const UserLogin=()=>{
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
+    const router= useRouter();
 
-    const loginHandle=()=>{
-        console.log(email,password);
+    const loginHandle=async()=>{
+        let response = await fetch('http://localhost:3000/api/user/login', {
+            method: 'post',
+            body: JSON.stringify({email, password})
+        })
+        response = await response.json();
+        if (response.success) {
+            const {result}=response;
+            delete result.password;
+            localStorage.setItem('user',JSON.stringify(result));
+            router.push('/')
+
+        } else {
+            alert("failed to login. Please try again with valid email and password")
+        }
     }
     return(
         <div>
