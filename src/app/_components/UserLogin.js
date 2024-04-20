@@ -1,10 +1,12 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react"
 
-const UserLogin=()=>{
+const UserLogin=(props)=>{
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const router= useRouter();
+
+    console.log("login",props);
 
     const loginHandle=async()=>{
         let response = await fetch('http://localhost:3000/api/user/login', {
@@ -16,7 +18,14 @@ const UserLogin=()=>{
             const {result}=response;
             delete result.password;
             localStorage.setItem('user',JSON.stringify(result));
-            router.push('/')
+            if(props?.redirect?.order){
+                console.log("login if");
+                router.push('/order')
+            }else{
+                console.log("login else");
+
+                router.push('/')
+            }
 
         } else {
             alert("failed to login. Please try again with valid email and password")
