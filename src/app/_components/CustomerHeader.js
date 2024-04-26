@@ -1,11 +1,12 @@
+'use client'
 import Link from "next/link"
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const CustomerHeader = (props) => {
 
-    const userStorage = JSON.parse(localStorage.getItem('user'));
-    const cartStorage = JSON.parse(localStorage.getItem('cart'));
+    const userStorage = localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'));
+    const cartStorage = localStorage.getItem('cart') && JSON.parse(localStorage.getItem('cart'));
     const [user, setUser] = useState(userStorage ? userStorage : undefined)
     const [cartNumber, setCartNumber] = useState(cartStorage?.length)
     const [cartItem, setCartItem] = useState(cartStorage);
