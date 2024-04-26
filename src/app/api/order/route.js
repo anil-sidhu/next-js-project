@@ -36,6 +36,6 @@ export async function GET(request) {
         success = true
     }
 
-    return NextResponse.json({ result })
+    return NextResponse.json({ result,success })
 
 }
