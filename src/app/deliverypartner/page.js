@@ -12,13 +12,49 @@ const Page = () => {
     const [address, setAddress] = useState('');
     const [mobile, setMobile] = useState('');
 
+
+    const handleSignUp = async () => {
+        console.log(name, mobile, password, confirmPassword, city, address);
+        let response = await fetch('http://localhost:3000/api/deliverypartners/signup', {
+            method: 'post',
+            body: JSON.stringify({ name, mobile, password, city, address })
+        })
+        response = await response.json();
+        if (response.success) {
+            const { result } = response;
+            delete result.password;
+            localStorage.setItem('delivery', JSON.stringify(result));
+            alert("success")
+
+        } else {
+            alert("failed")
+        }
+    }
+
+    const loginHandle = async () => {
+        let response = await fetch('http://localhost:3000/api/deliverypartners/login', {
+            method: 'post',
+            body: JSON.stringify({ mobile: loginMobile, password: loginPassword })
+        })
+        response = await response.json();
+        if (response.success) {
+            const { result } = response;
+            delete result.password;
+            localStorage.setItem('delivery', JSON.stringify(result));
+            alert("success")
+
+        } else {
+            alert("failed to login. Please try again with valid mobile and password")
+        }
+    }
+
     return (
         <div>
             <h1>Delivery Partner</h1>
             <div className="auth-container">
-                
+
                 <div className="login-wrapper">
-                <h3>Login</h3>
+                    <h3>Login</h3>
                     <div className="input-wrapper">
                         <input type="text" placeholder="enter mobile" value={loginMobile} onChange={(event) => setLoginMobile(event.target.value)} className="input-field" />
                     </div>
@@ -26,12 +62,12 @@ const Page = () => {
                         <input type="password" placeholder="enter password" value={loginPassword} onChange={(event) => setLoginPassword(event.target.value)} className="input-field" />
                     </div>
                     <div className="input-wrapper">
-                        <button className="button">Login</button>
+                        <button onClick={loginHandle} className="button">Login</button>
                     </div>
 
                 </div>
                 <div className="signup-wrapper">
-                <h3>Signup</h3>
+                    <h3>Signup</h3>
                     <div className="input-wrapper">
                         <input type="text" className="input-field" value={name} onChange={(event) => setName(event.target.value)} placeholder="Enter name" />
                     </div>
@@ -53,7 +89,7 @@ const Page = () => {
                     </div>
 
                     <div className="input-wrapper">
-                        <button className="button">Signup</button>
+                        <button onClick={handleSignUp} className="button">Signup</button>
                     </div>
                 </div>
             </div>
