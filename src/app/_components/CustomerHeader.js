@@ -102,8 +102,12 @@ const CustomerHeader = (props) => {
                 }
                 <li>
                     <Link href={cartNumber ? "/cart" : "#"} >Cart({cartNumber ? cartNumber : 0})</Link>
-                </li> <li>
+                </li> 
+                <li>
                     <Link href="/" >Add Restaurant</Link>
+                </li>
+                <li>
+                    <Link href="/deliverypartner" >Delivery Partner</Link>
                 </li>
             </ul>
         </div>
