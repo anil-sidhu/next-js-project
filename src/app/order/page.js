@@ -31,18 +31,18 @@ const Page = () => {
 
         let cart = JSON.parse(localStorage.getItem('cart'));
         let foodItemIds = cart.map((item) => item._id).toString();
-        let deliveryBoyResponse = await fetch('http://localhost:3000/api/deliverypartners/'+city);
+        let deliveryBoyResponse = await fetch('http://localhost:3000/api/deliverypartners/' + city);
         deliveryBoyResponse = await deliveryBoyResponse.json();
-       let deliveryBoyIds=deliveryBoyResponse.result.map((item)=>item._id);
-   
-        let deliveryBoy_id= deliveryBoyIds[Math.floor(Math.random()*deliveryBoyIds.length)]
+        let deliveryBoyIds = deliveryBoyResponse.result.map((item) => item._id);
+
+        let deliveryBoy_id = deliveryBoyIds[Math.floor(Math.random() * deliveryBoyIds.length)]
         console.log(deliveryBoy_id);
-        if(!deliveryBoy_id){
-alert("delivery partner not available ")
-return false;
+        if (!deliveryBoy_id) {
+            alert("delivery partner not available ")
+            return false;
         }
-        
-        
+
+
 
         let resto_id = cart[0].resto_id;
         let collection = {
